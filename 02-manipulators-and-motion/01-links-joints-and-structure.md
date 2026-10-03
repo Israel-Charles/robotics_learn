@@ -55,15 +55,9 @@ At an ordinary configuration of a movable four-bar linkage, choosing the angle o
 
 ## Common manipulator arrangements
 
-| Arrangement | Typical positioning structure | Useful intuition |
-| --- | --- | --- |
-| Cartesian | Three orthogonal prismatic joints | Moves along three linear axes |
-| Cylindrical | A rotation and two translations | Sweeps around a base axis while changing radius and height |
-| Articulated | Several revolute joints | Bends through shoulder-like and elbow-like motions |
-| SCARA | Commonly two parallel revolute positioning joints, vertical travel, and tool rotation | Suited to many planar transfer and insertion tasks |
-| Parallel | Multiple chains support a platform | Motion is constrained by all chains together |
+Joint types and axis placement together determine a robot's arrangement. For example, three orthogonal prismatic joints create Cartesian positioning, while several revolute joints can form an articulated arm. Multiple chains supporting one platform form a parallel mechanism.
 
-Additional wrist or tool joints can change these arrangements' capabilities. A family name does not specify every joint or workspace limit.
+After studying configuration and workspace, use [Robot configurations](04-robot-configurations.md) to compare these arrangements, their joint sequences, and their applications. A family name does not specify every joint or workspace limit.
 
 ## Interpreting a six-axis arm
 

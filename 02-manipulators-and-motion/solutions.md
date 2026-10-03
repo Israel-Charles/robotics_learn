@@ -124,4 +124,18 @@ $$
 
 Subtracting gives $\Delta x=L_2(\cos\delta-1)$ and $\Delta y=L_2\sin\delta$. For a small nonzero bend, $\cos\delta<1$, so $\Delta x<0$: the tip has moved inward. There is no contradiction. Its starting tangent is vertical, but the tangent changes as the elbow bends. Finite displacement includes that change in geometry.
 
+## 7. Configuration comparison
+
+**Question.** Explain why polar and SCARA positioning mechanisms can both be described as RRP yet have different motion. Why is RRR alone an inadequate description of a delta robot? Which conventional SCARA task freedoms include tool yaw?
+
+**Solution.** The joint letters do not specify axis arrangement. A polar mechanism changes azimuth, elevation, and radial extension; a SCARA uses two parallel rotary axes for horizontal reach and a vertical slide. A delta contains several chains, passive joints, and closed-loop constraints; RRR could be mistaken for a single serial chain and does not describe that topology. A conventional four-axis SCARA controls horizontal position, vertical position, and tool yaw: $x,y,z,\psi$. Arbitrary roll and pitch are not additional independent freedoms of that configuration.
+
+## 8. Count the model
+
+**Question.** A quadruped has three actuated joints per leg. Count its actuated joint coordinates and the coordinates of an unconstrained floating-base model before contact constraints. Does a soft gripper with one pressure input necessarily have one deformation DOF? Explain.
+
+**Solution.** Four legs times three actuated joints gives $4\times3=12$ actuated joint coordinates. A freely moving base adds six pose freedoms, so this model has $12+6=18$ configuration DOF before imposing contacts. The base freedoms are not six extra actuators. Foot contacts constrain allowable motion, depending on contact assumptions.
+
+A soft gripper's one pressure command can influence a continuous deformation field. A reduced model might approximate that shape with one or a few variables, but actuator count does not establish the number of independent deformation modes in the physical structure.
+
 [Exercises](exercises.md) · [Section index](README.md) · [Next section](../03-kinematics-foundations/README.md)

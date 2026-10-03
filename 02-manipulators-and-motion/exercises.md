@@ -7,4 +7,7 @@
 5. **Mobile motion.** A differential-drive robot uses ordinary left and right wheels that roll without sideways slipping. Its chassis pose is $(x,y,\psi)$. If it faces positive $x$, can it immediately slide along $y$ without changing its heading? Name its two immediate motion choices and describe a sequence that moves it to its left.
 6. **Singularity.** Sketch a fully extended 2R arm pointing along positive $x$. Imagine first rotating only the shoulder and then only the elbow. For each case, identify the circle traced by the tip and its tangent at the starting point. Which tip-velocity direction is missing at that instant? Explain why the tip can nevertheless move inward after a finite elbow bend.
 
+7. **Configuration comparison.** Explain why polar and SCARA positioning mechanisms can both be described as RRP yet have different motion. Why is RRR alone an inadequate description of a delta robot? Which conventional SCARA task freedoms include tool yaw?
+8. **Count the model.** A quadruped has three actuated joints per leg. Count its actuated joint coordinates and the coordinates of an unconstrained floating-base model before contact constraints. Does a soft gripper with one pressure input necessarily have one deformation DOF? Explain.
+
 [Solutions](solutions.md) · [Section index](README.md)

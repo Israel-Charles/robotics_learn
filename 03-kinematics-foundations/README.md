@@ -26,4 +26,4 @@ The examples assume rigid links, ideal revolute joints, a fixed base, and a tool
 3. [Inverse kinematics of a planar arm](03-inverse-kinematics.md)
 4. [Exercises](exercises.md), then [worked solutions](solutions.md)
 
-[Course index](../README.md)
+[Course index](../README.md) · [Next section: Control and interaction](../04-control-and-interaction/README.md)

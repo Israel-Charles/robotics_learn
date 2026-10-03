@@ -76,4 +76,4 @@ Check both the final configuration and the path taken to reach it. Two feasible 
 - Singularity concerns instantaneous task-motion capability.
 - Geometric reachability is one part of feasibility.
 
-[Previous](02-degrees-of-freedom.md) · [Section index](README.md) · [Practice](exercises.md)
+[Previous](02-degrees-of-freedom.md) · [Section index](README.md) · [Next: Robot configurations](04-robot-configurations.md)

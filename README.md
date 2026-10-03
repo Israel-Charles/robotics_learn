@@ -9,8 +9,10 @@ Read the sections in order on a first pass. Each section contains lessons, pract
 | Section | What you will learn | Starting knowledge |
 | --- | --- | --- |
 | [01 · Robotics foundations](01-robotics-foundations/README.md) | Identify system components, distinguish robots from manipulators, and describe autonomy and performance | None |
-| [02 · Manipulators and motion](02-manipulators-and-motion/README.md) | Describe links, joints, configurations, degrees of freedom, and workspace | Section 01; basic algebra |
+| [02 · Manipulators and motion](02-manipulators-and-motion/README.md) | Describe links, joints, DOF, workspace, and serial, parallel, mobile, and soft configurations | Section 01; basic algebra |
 | [03 · Kinematics foundations](03-kinematics-foundations/README.md) | Use coordinate frames and calculate forward and inverse kinematics for a planar arm | Section 02; sine, cosine, and basic matrix multiplication |
+| [04 · Control and interaction](04-control-and-interaction/README.md) | Understand feedback, motion timing, force control, impedance, and collaborative operation | Sections 01–03 |
+| [05 · Perception and autonomous grasping](05-perception-and-autonomous-grasping/README.md) | Connect depth, visual servoing, tactile sensing, adaptive grip, and demonstrations | Sections 03–04 |
 
 The equations use SI units and radians unless an example explicitly uses degrees. Coding examples use descriptive variable names. The optional Python example uses only the standard library.
 
@@ -22,7 +24,7 @@ The equations use SI units and radians unless an example explicitly uses degrees
 4. Check units, coordinate frames, and limiting cases in every calculation.
 5. Explain what the model leaves out before applying it to a real robot.
 
-A recurring example is a robot that picks up an object and places it elsewhere. We first identify the system components, then describe its joints, and finally compute where its tool can move.
+A recurring example is a robot that picks up an object and places it elsewhere. We identify its components, model its motion, then examine how sensing and feedback support approach, contact, and grasping.
 
 ## The learning path
 
@@ -33,5 +35,7 @@ flowchart LR
     C --> D[Coordinate frames]
     D --> E[Forward kinematics]
     E --> F[Inverse kinematics]
+    F --> G[Control and interaction]
+    G --> H[Perception and grasping]
+    H --> I[Learning from demonstrations]
 ```
-
