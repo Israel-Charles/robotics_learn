@@ -1,1 +1,37 @@
-# robotics_learn
+# Robotics: From Systems to Motion
+
+Learn how robotic systems are built, how their mechanisms move, and how to predict that motion mathematically. The material starts with physical intuition and develops the tools needed to approach simulation and hardware with understanding.
+
+## Start here
+
+Read the sections in order on a first pass. Each section contains lessons, practice problems, and separate worked solutions. No robot hardware or simulator is required.
+
+| Section | What you will learn | Starting knowledge |
+| --- | --- | --- |
+| [01 · Robotics foundations](01-robotics-foundations/README.md) | Identify system components, distinguish robots from manipulators, and describe autonomy and performance | None |
+| [02 · Manipulators and motion](02-manipulators-and-motion/README.md) | Describe links, joints, configurations, degrees of freedom, and workspace | Section 01; basic algebra |
+| [03 · Kinematics foundations](03-kinematics-foundations/README.md) | Use coordinate frames and calculate forward and inverse kinematics for a planar arm | Section 02; sine, cosine, and basic matrix multiplication |
+
+The equations use SI units and radians unless an example explicitly uses degrees. Coding examples use descriptive variable names. The optional Python example uses only the standard library.
+
+## How to study
+
+1. Read a lesson and sketch the mechanism or system it describes.
+2. Predict what should happen before substituting numbers into an equation.
+3. Work through the section exercises before opening the solutions.
+4. Check units, coordinate frames, and limiting cases in every calculation.
+5. Explain what the model leaves out before applying it to a real robot.
+
+A recurring example is a robot that picks up an object and places it elsewhere. We first identify the system components, then describe its joints, and finally compute where its tool can move.
+
+## The learning path
+
+```mermaid
+flowchart LR
+    A[Robot systems] --> B[Links and joints]
+    B --> C[Configuration and workspace]
+    C --> D[Coordinate frames]
+    D --> E[Forward kinematics]
+    E --> F[Inverse kinematics]
+```
+
