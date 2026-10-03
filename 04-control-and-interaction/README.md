@@ -10,6 +10,7 @@ Connect motion goals to feedback, then examine how robots regulate contact and s
 - Separate setpoint regulation, path following, and trajectory tracking.
 - Explain force, impedance, and hybrid motion–force control.
 - Distinguish collaborative applications from robot geometry and describe the limits of passivity claims.
+- Interpret actuator commands and feedback measurements, and combine model-based effort with tracking feedback.
 
 ## Prerequisites
 
@@ -21,6 +22,8 @@ Connect motion goals to feedback, then examine how robots regulate contact and s
 2. [Position, paths, and trajectories](02-position-paths-and-trajectories.md)
 3. [Force, impedance, and hybrid control](03-force-and-impedance-control.md)
 4. [Collaborative robots and physical interaction](04-collaborative-robots.md)
-5. [Exercises](exercises.md), then [solutions](solutions.md)
+5. [Actuators and feedback devices](05-actuators-and-feedback-devices.md)
+6. [Dynamics, feedforward, and disturbances](06-dynamics-and-feedforward.md)
+7. [Exercises](exercises.md), then [solutions](solutions.md)
 
 [Course index](../README.md) · [Next section: Perception and autonomous grasping](../05-perception-and-autonomous-grasping/README.md)

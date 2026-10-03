@@ -228,4 +228,33 @@ for shoulderDegrees, elbowDegrees in jointAnglePairsDegrees:
 
 For the last row, $x\approx0.346410$ m and $y=0.5$ m, so $r=\sqrt{0.346410^2+0.5^2}\approx\sqrt{0.37}=0.6083$ m. This checks the radius independently of the code.
 
-[Exercises](exercises.md) · [Section index](README.md) · [Course index](../README.md)
+## 9. Velocity mapping
+
+**Question.** For $L_1=0.4$ m, $L_2=0.3$ m, $\theta_1=0$, and $\theta_2=\pi/2$, calculate the position Jacobian. Find tool velocity for joint rates $(0.2,-0.1)$ rad/s, then find joint rates that produce tool velocity $(0,0.04)$ m/s at that configuration.
+
+**Solution.** With $\sin0=0$, $\cos0=1$, $\sin(\pi/2)=1$, and $\cos(\pi/2)=0$, substitution gives
+
+$$
+J=\begin{bmatrix}-0.4(0)-0.3(1)&-0.3(1)\\0.4(1)+0.3(0)&0.3(0)\end{bmatrix}
+=\begin{bmatrix}-0.3&-0.3\\0.4&0\end{bmatrix}.
+$$
+
+Multiplication gives $\dot x=-0.3(0.2)-0.3(-0.1)=-0.03$ m/s and $\dot y=0.4(0.2)=0.08$ m/s.
+
+For the inverse request, solve the vertical equation first: $0.4\dot\theta_1=0.04$, so $\dot\theta_1=0.1$ rad/s. The horizontal equation is $-0.3\dot\theta_1-0.3\dot\theta_2=0$, hence $\dot\theta_2=-0.1$ rad/s. Substitution yields $(0,0.04)$ m/s as required. This rate pair must be recomputed as configuration changes.
+
+## 10. Singular motion
+
+**Question.** For the same positive link lengths, use $\det J=L_1L_2\sin\theta_2$ to identify singular elbow angles. At $\theta_1=\theta_2=0$, can joint motion produce horizontal tool velocity 0.01 m/s? Give two joint-rate pairs producing vertical velocity 0.07 m/s and explain whether a physical joint has lost its freedom.
+
+**Solution.** Since $L_1L_2=0.12$ m² is nonzero, the determinant is zero exactly when $\sin\theta_2=0$. Thus $\theta_2=n\pi$ for integer $n$: straight or fully folded configurations, subject to joint limits.
+
+At the specified straight configuration,
+
+$$
+J=\begin{bmatrix}0&0\\0.7&0.3\end{bmatrix}.
+$$
+
+The horizontal equation is $\dot x=0$ for every finite joint-rate pair, so 0.01 m/s horizontally is impossible at that instant. For vertical motion, $0.7\dot\theta_1+0.3\dot\theta_2=0.07$. Two solutions are $(0.1,0)$ and $(0,0.07/0.3)=(0,0.2333\ldots)$ rad/s. Both joints can still rotate; their effects on the position task span only one independent direction.
+
+[Exercises](exercises.md) · [Section index](README.md) · [Next section](../04-control-and-interaction/README.md)

@@ -10,4 +10,8 @@
 7. **Configuration comparison.** Explain why polar and SCARA positioning mechanisms can both be described as RRP yet have different motion. Why is RRR alone an inadequate description of a delta robot? Which conventional SCARA task freedoms include tool yaw?
 8. **Count the model.** A quadruped has three actuated joints per leg. Count its actuated joint coordinates and the coordinates of an unconstrained floating-base model before contact constraints. Does a soft gripper with one pressure input necessarily have one deformation DOF? Explain.
 
+9. **Joint freedom and actuation.** Compare the DOF of cylindrical, helical, universal, and spherical joints. For a screw with 2 mm lead, find axial travel for half a turn. Does adding an encoder make a passive hinge active? Can a passive joint dissipate energy?
+10. **Load and cycle.** A hypothetical 5 kg payload-rated arm has mass 25 kg. It carries a 1.2 kg tool, a 0.3 kg adapter, and a 2 kg object. Find total load mass, nominal payload-to-robot-mass ratio, and ideal cycles per minute for a 5 s cycle. Does the mass check alone establish suitability?
+11. **Gripper classification.** Explain how one gripper can be both mechanical and pneumatic. Estimate ideal normal holding force for a sealed vacuum cup with pressure difference 40,000 Pa and effective area $5\times10^{-4}$ m². Does this alone validate lifting a 1 kg object?
+
 [Solutions](solutions.md) · [Section index](README.md)

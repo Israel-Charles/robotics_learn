@@ -25,4 +25,4 @@ Follow the information needed to locate an object, guide an approach, establish 
 5. [Learning from demonstrations](05-learning-from-demonstrations.md)
 6. [Exercises](exercises.md), then [solutions](solutions.md)
 
-[Course index](../README.md)
+[Course index](../README.md) · [Next section: Robot programming](../06-robot-programming/README.md)

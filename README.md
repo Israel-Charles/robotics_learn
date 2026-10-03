@@ -9,10 +9,11 @@ Read the sections in order on a first pass. Each section contains lessons, pract
 | Section | What you will learn | Starting knowledge |
 | --- | --- | --- |
 | [01 · Robotics foundations](01-robotics-foundations/README.md) | Identify system components, distinguish robots from manipulators, and describe autonomy and performance | None |
-| [02 · Manipulators and motion](02-manipulators-and-motion/README.md) | Describe links, joints, DOF, workspace, and serial, parallel, mobile, and soft configurations | Section 01; basic algebra |
-| [03 · Kinematics foundations](03-kinematics-foundations/README.md) | Use coordinate frames and calculate forward and inverse kinematics for a planar arm | Section 02; sine, cosine, and basic matrix multiplication |
-| [04 · Control and interaction](04-control-and-interaction/README.md) | Understand feedback, motion timing, force control, impedance, and collaborative operation | Sections 01–03 |
+| [02 · Manipulators and motion](02-manipulators-and-motion/README.md) | Describe joints, DOF, configurations, performance, and tool selection | Section 01; basic algebra |
+| [03 · Kinematics foundations](03-kinematics-foundations/README.md) | Use frames, forward/inverse kinematics, velocity Jacobians, and singularity analysis | Section 02; sine, cosine, and basic matrix multiplication |
+| [04 · Control and interaction](04-control-and-interaction/README.md) | Understand feedback, contact control, actuators, dynamics, and collaborative operation | Sections 01–03 |
 | [05 · Perception and autonomous grasping](05-perception-and-autonomous-grasping/README.md) | Connect depth, visual servoing, tactile sensing, adaptive grip, and demonstrations | Sections 03–04 |
+| [06 · Robot programming](06-robot-programming/README.md) | Teach motions, prepare programs offline, and define execution and failure logic | Sections 03–05 |
 
 The equations use SI units and radians unless an example explicitly uses degrees. Coding examples use descriptive variable names. The optional Python example uses only the standard library.
 
@@ -35,7 +36,9 @@ flowchart LR
     C --> D[Coordinate frames]
     D --> E[Forward kinematics]
     E --> F[Inverse kinematics]
-    F --> G[Control and interaction]
+    F --> V[Velocity kinematics]
+    V --> G[Control and interaction]
     G --> H[Perception and grasping]
     H --> I[Learning from demonstrations]
+    I --> J[Robot programming]
 ```

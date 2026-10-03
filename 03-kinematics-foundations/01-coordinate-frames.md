@@ -47,7 +47,7 @@ $$
 \end{bmatrix}.
 $$
 
-The first column tells us where B's $x$ axis points in A; the second does the same for B's $y$ axis. The minus sign is a consequence of that second axis's direction, rather than an arbitrary rule to memorize.
+The first column tells us where B's $x$ axis points in A; the second does the same for B's $y$ axis. Each entry is the dot product of a unit axis from A with a unit axis from B: $R_{ij}=\hat e_{i_A}\cdot\hat e_{j_B}$. A dot product of unit vectors equals the cosine of their included angle, so these entries are called **direction cosines**. The minus sign follows from the second axis's direction.
 
 For a vector with components $[u,v]^T$ in B, multiplication gives
 

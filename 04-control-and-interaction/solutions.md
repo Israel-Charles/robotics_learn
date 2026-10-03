@@ -46,4 +46,27 @@ This specifies how much displacement accompanies the external load. It does not 
 
 The label describes intended collaborative capabilities, but the full installation includes the tool, workpiece, loads, and possible human contact. Passivity constrains energy generation; it does not impose a harmless peak force or remove sharp edges. For example, stored spring energy can be released during contact even by a passive mechanism. The actual application and protective functions need assessment.
 
+## 5. Actuator and sensor increments
+
+**Question.** A motor has 1.8° full steps and receives 1000 pulses/s. Find commanded rpm in full-step mode and with 16 microsteps per full step. Find angular increment for a joint measurement with 4096 decoded counts per revolution. Explain why neither command increment nor encoder increment is a complete accuracy specification.
+
+**Solution.** There are $360/1.8=200$ full steps per revolution. In full-step mode, $1000/200=5$ rev/s, or $5\times60=300$ rpm. With 16 microsteps per full step, there are $200\times16=3200$ pulses per revolution, so $1000/3200\times60=18.75$ rpm.
+
+The sensor increment is $360/4096\approx0.0879^\circ$ per count. The pulse calculation assumes the motor follows commands without missed motion. The encoder calculation describes distinguishable measured increments. Calibration, friction, backlash, deflection, and load can affect achieved position even when those increments are small. Motor-shaft measurements would also need conversion through the transmission before being treated as joint measurements.
+
+## 6. Predicted and corrective effort
+
+**Question.** A scalar joint model has $I=0.2$ kg·m², $b=0.1$ N·m·s/rad, desired acceleration 1 rad/s², desired speed 0.5 rad/s, and modeled gravity load 0.8 N·m. Find inverse-dynamics feedforward torque. Add feedback with position error 0.02 rad, speed error 0.1 rad/s, $K_p=10$ N·m/rad, and $K_d=0.5$ N·m·s/rad. Explain the role of feedback when the actual payload differs from the model.
+
+**Solution.** With no modeled external disturbance, add acceleration, friction, and gravity terms:
+
+$$
+\tau_{\mathrm{ff}}=I\ddot q_d+b\dot q_d+g
+=0.2(1)+0.1(0.5)+0.8=1.05\text{ N·m}.
+$$
+
+The corrective term is $K_p e+K_d\dot e=10(0.02)+0.5(0.1)=0.25$ N·m, giving total command $1.05+0.25=1.30$ N·m.
+
+If the payload changes, predicted inertia and gravity load may be wrong. Measured errors allow feedback to change the command, but actuator limits and controller dynamics constrain the response. A constant unknown load can leave a steady error under proportional control; the presence of feedback alone does not guarantee perfect tracking.
+
 [Exercises](exercises.md) · [Section index](README.md) · [Next section](../05-perception-and-autonomous-grasping/README.md)

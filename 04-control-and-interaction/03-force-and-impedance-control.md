@@ -36,6 +36,8 @@ For a horizontal surface with normal along $z$, a task might request 4 N normal 
 
 “Hybrid” here means different control objectives in different directions. [Hybrid visual servoing](../05-perception-and-autonomous-grasping/02-visual-servoing.md) combines different visual error descriptions instead.
 
+For a curved contour from A to B, constant **speed** means constant velocity magnitude while the tangent direction changes. Request tangential velocity $\dot p=v_t\hat t$ using the local unit tangent $\hat t$, and regulate force along the local normal. Express both in a common frame. [Velocity kinematics](../03-kinematics-foundations/04-velocity-kinematics.md) relates the desired tool velocity to joint rates; dynamics and the contact controller determine required effort. A constant nonzero velocity vector would describe straight-line motion, not a general curved contour.
+
 ## Quick reference
 
 | Approach | Main objective |

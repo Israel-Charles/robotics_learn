@@ -43,4 +43,4 @@ A wheeled robot has an arm, a soft gripper, and software that changes grip force
 
 Count configuration variables, contact constraints, and control inputs separately. Choose terrain capability from the actual mechanism and contact conditions. Treat adaptability as behavior and softness as a modeling and construction choice.
 
-[Previous](04-robot-configurations.md) · [Section index](README.md) · [Practice](exercises.md)
+[Previous](04-robot-configurations.md) · [Section index](README.md) · [Next: Performance and selection](06-performance-and-selection.md)

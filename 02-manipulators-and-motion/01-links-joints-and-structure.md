@@ -18,10 +18,22 @@ A serial chain has one sequence of links and joints from base to tool. A paralle
 | --- | --- | --- | --- |
 | Revolute, R | Rotation about one fixed joint axis | 1 | Angle, in rad |
 | Prismatic, P | Translation along one fixed joint axis | 1 | Displacement, in m |
-| Spherical | Rotation about a common center in three dimensions | 3 | Three local orientation coordinates |
+| Cylindrical, C | Independent rotation about and translation along the same axis | 2 | One angle and one displacement |
+| Spherical, S | Rotation about a common center in three dimensions | 3 | Three local orientation coordinates |
+| Planar | Two translations within a plane and rotation about its normal | 3 | Two positions and one angle |
+| Universal, U | Rotation about two intersecting perpendicular hinge axes | 2 | Two angles |
+| Helical or screw, H | Rotation and axial translation coupled by screw lead | 1 | One angle or one displacement |
 | Fixed | No relative motion | 0 | None |
 
-A joint's ideal degrees of freedom do not state its number of actuators. Some permitted motions may be passive. Real joints also have travel limits, friction, compliance, and clearance that ideal models omit.
+“Fixed axis” here means an axis defined by the joint geometry relative to its adjoining link; upstream joints may move that axis in the world. A spherical joint behaves like a ball in a socket, while a universal joint has two rotational freedoms and cannot independently supply a third. A planar joint is an ideal relative-motion model; an XY stage with a rotary table can realize equivalent motion using several joints.
+
+Some classifications also distinguish **orthogonal sliding**, **twisting**, and **revolving** arrangements by the relationship between link directions and joint axes. These are one-DOF prismatic or revolute arrangements, not extra independent motion types. Symbols such as O, T, V, and the symbol for planar motion depend on the convention; always read a diagram's legend. See this [NPTEL joint classification](https://archive.nptel.ac.in/content/storage2/courses/112103174/module7/lec5/2.html) for an alternative naming scheme.
+
+### Active and passive joints
+
+An **active joint** has a driven actuation channel supplying effort. A **passive joint** has no independently commanded actuator at that joint; it responds to connected mechanisms, contact, gravity, or stored elastic energy. Either description can apply to a revolute or prismatic joint: motion type and actuation are separate properties.
+
+In a driven four-bar linkage, one motor can move the input bar while passive pin joints accommodate the resulting motion. Those joints still transmit forces. Springs can store and return energy, while bearings and dampers dissipate it; “passive” does not mean frictionless or energy-free. A sensor at a passive joint measures motion without making it actuated.
 
 ### Coupled motion: a screw example
 
@@ -38,6 +50,8 @@ d=\frac{2\text{ mm}}{2\pi}\pi=1\text{ mm}.
 $$
 
 You cannot choose the rotation and displacement separately while the screw remains engaged with the fixed nut. Specifying either one determines the other, so this ideal screw joint has **one DOF**, even though it both rotates and translates.
+
+A cylindrical joint instead permits independent sliding and rotation, so it has two DOF. The independence of the coordinates, rather than the number of visible motion types, is the deciding difference.
 
 ### Closed loops: linked joints do not move independently
 

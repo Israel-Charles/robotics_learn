@@ -138,4 +138,40 @@ Subtracting gives $\Delta x=L_2(\cos\delta-1)$ and $\Delta y=L_2\sin\delta$. For
 
 A soft gripper's one pressure command can influence a continuous deformation field. A reduced model might approximate that shape with one or a few variables, but actuator count does not establish the number of independent deformation modes in the physical structure.
 
+## 9. Joint freedom and actuation
+
+**Question.** Compare the DOF of cylindrical, helical, universal, and spherical joints. For a screw with 2 mm lead, find axial travel for half a turn. Does adding an encoder make a passive hinge active? Can a passive joint dissipate energy?
+
+**Solution.** A cylindrical joint has two independent coordinates: rotation and axial displacement. A helical joint couples those motions into one coordinate. A universal joint permits two independent rotations, while a spherical joint permits three locally independent rotations about its center.
+
+For half a turn, $\theta=\pi$ rad. Using lead $\ell=2$ mm:
+
+$$
+d=\frac{\ell\theta}{2\pi}=\frac{2\pi}{2\pi}=1\text{ mm}.
+$$
+
+An encoder measures motion but supplies no commanded actuation effort, so the hinge remains passive. Friction and damping at a passive joint can dissipate mechanical energy; springs can store and return it. Passive does not mean that no energy is exchanged.
+
+## 10. Load and cycle
+
+**Question.** A hypothetical 5 kg payload-rated arm has mass 25 kg. It carries a 1.2 kg tool, a 0.3 kg adapter, and a 2 kg object. Find total load mass, nominal payload-to-robot-mass ratio, and ideal cycles per minute for a 5 s cycle. Does the mass check alone establish suitability?
+
+**Solution.** The carried mass is $1.2+0.3+2=3.5$ kg, which is below the stated 5 kg rating. The nominal ratio uses rated payload, giving $5/25=0.20$; using the actual 3.5 kg load would instead describe the current loading ratio, $3.5/25=0.14$.
+
+Ideal throughput is $60\text{ s/min}/5\text{ s/cycle}=12$ cycles/min. This excludes downtime and other delays. Suitability also depends on load center of mass, inertia, required motion and contact forces, tooling clearance, and environmental conditions. A mass comparison is only one check.
+
+## 11. Gripper classification
+
+**Question.** Explain how one gripper can be both mechanical and pneumatic. Estimate ideal normal holding force for a sealed vacuum cup with pressure difference 40,000 Pa and effective area $5\times10^{-4}$ m². Does this alone validate lifting a 1 kg object?
+
+**Solution.** Mechanical fingers describe how the object is contacted and retained. Pneumatic actuation describes the compressed-air mechanism driving those fingers. The labels answer different questions and can apply together.
+
+For the vacuum cup,
+
+$$
+F=\Delta p A=40{,}000\times0.0005=20\text{ N}.
+$$
+
+The object's approximate static weight is $W=mg=1(9.81)=9.81$ N. The ideal normal force is larger, but lifting still depends on seal integrity, load direction, acceleration, cup deformation, moments, and validated ratings. The calculation does not establish the complete operating limit.
+
 [Exercises](exercises.md) · [Section index](README.md) · [Next section](../03-kinematics-foundations/README.md)

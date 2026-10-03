@@ -14,16 +14,19 @@ The examples assume rigid links, ideal revolute joints, a fixed base, and a tool
 - Find the inverse kinematics branches for a reachable target.
 - Check a solution by substituting it into the forward model.
 - Explain why a kinematic solution is not a complete motion plan.
+- Derive the planar position Jacobian and identify its singular configurations.
 
 ## Prerequisites
 
-[Manipulators and motion](../02-manipulators-and-motion/README.md), basic algebra, the Pythagorean theorem, sine and cosine, and introductory matrix multiplication. The first lesson gives the matrix-vector multiplication used here. Python is optional.
+[Manipulators and motion](../02-manipulators-and-motion/README.md), basic algebra, the Pythagorean theorem, sine and cosine, and introductory matrix multiplication. The first lesson gives the matrix-vector multiplication used here. The velocity lesson introduces time derivatives and the chain rule used in its derivation. Python is optional.
 
 ## Recommended order
 
 1. [Coordinate frames and planar transformations](01-coordinate-frames.md)
 2. [Forward kinematics of a planar arm](02-forward-kinematics.md)
 3. [Inverse kinematics of a planar arm](03-inverse-kinematics.md)
-4. [Exercises](exercises.md), then [worked solutions](solutions.md)
+4. [Velocity kinematics and the Jacobian](04-velocity-kinematics.md)
+5. [Jacobians and singularities](05-jacobians-and-singularities.md)
+6. [Exercises](exercises.md), then [worked solutions](solutions.md)
 
 [Course index](../README.md) · [Next section: Control and interaction](../04-control-and-interaction/README.md)

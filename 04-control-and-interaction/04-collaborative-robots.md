@@ -33,4 +33,4 @@ Does adding a compliant controller make a pointed tool harmless near a person? N
 - Impedance specifies response to interaction; passivity concerns energy exchange.
 - A stability property is not a complete assessment of human contact.
 
-[Previous](03-force-and-impedance-control.md) · [Section index](README.md) · [Practice](exercises.md)
+[Previous](03-force-and-impedance-control.md) · [Section index](README.md) · [Next: Actuators and feedback](05-actuators-and-feedback-devices.md)

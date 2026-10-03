@@ -134,4 +134,4 @@ An endpoint solution is not a safe or executable trajectory by itself. The entir
 | Shoulder angle | $\theta_1=\operatorname{atan2}(y,x)-\operatorname{atan2}(L_2s_2,L_1+L_2c_2)$ |
 | Verification | Evaluate forward kinematics for each candidate |
 
-[Previous](02-forward-kinematics.md) · [Section index](README.md) · [Practice](exercises.md)
+[Previous](02-forward-kinematics.md) · [Section index](README.md) · [Next: Velocity kinematics](04-velocity-kinematics.md)

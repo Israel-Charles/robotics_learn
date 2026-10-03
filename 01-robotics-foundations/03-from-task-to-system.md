@@ -49,6 +49,8 @@ A stepper motor advances through commanded electromagnetic steps. It is often us
 
 Selecting an actuator involves load, speed, resolution, thermal limits, gearing, and control requirements. Sending a more precise number from software does not automatically produce more precise physical motion.
 
+See [Actuators and feedback devices](../04-control-and-interaction/05-actuators-and-feedback-devices.md) for step-rate calculations and the measurements used by the controller.
+
 ## Accuracy and repeatability
 
 Suppose a tool is commanded to a coordinate of 100.0 mm. Three measured results are 101.9, 102.0, and 102.1 mm.
