@@ -4,7 +4,7 @@ Learn how robotic systems are built, how their mechanisms move, and how to predi
 
 ## Start here
 
-Read the sections in order on a first pass. Each section contains lessons, practice problems, and separate worked solutions. No robot hardware or simulator is required.
+Read Sections 01–03 first, then continue through control, perception, and programming. For a deeper mathematical route, read Section 07 directly after Section 03. Each section contains lessons, practice problems, and separate worked solutions. No robot hardware or simulator is required.
 
 | Section | What you will learn | Starting knowledge |
 | --- | --- | --- |
@@ -14,8 +14,9 @@ Read the sections in order on a first pass. Each section contains lessons, pract
 | [04 · Control and interaction](04-control-and-interaction/README.md) | Understand feedback, contact control, actuators, dynamics, and collaborative operation | Sections 01–03 |
 | [05 · Perception and autonomous grasping](05-perception-and-autonomous-grasping/README.md) | Connect depth, visual servoing, tactile sensing, adaptive grip, and demonstrations | Sections 03–04 |
 | [06 · Robot programming](06-robot-programming/README.md) | Teach motions, prepare programs offline, and define execution and failure logic | Sections 03–05 |
+| [07 · Spatial kinematics](07-spatial-kinematics/README.md) | Compose 3D rotations, use orientation representations, and build transform chains with standard DH | Section 03; matrix multiplication, dot and cross products |
 
-The equations use SI units and radians unless an example explicitly uses degrees. Coding examples use descriptive variable names. The optional Python example uses only the standard library.
+The equations use SI units and radians unless an example explicitly uses degrees. Planar link lengths use $a_1,a_2,\ldots$, consistent with the standard DH convention developed in Section 07. Coordinates are column vectors; ${}^{A}T_B$ maps frame $B$ coordinates into frame $A$. Coding examples use descriptive variable names. The optional Python example uses only the standard library.
 
 ## How to study
 
@@ -37,6 +38,8 @@ flowchart LR
     D --> E[Forward kinematics]
     E --> F[Inverse kinematics]
     F --> V[Velocity kinematics]
+    V --> K[Spatial rotations and transforms]
+    K --> L[Standard DH and spatial forward kinematics]
     V --> G[Control and interaction]
     G --> H[Perception and grasping]
     H --> I[Learning from demonstrations]

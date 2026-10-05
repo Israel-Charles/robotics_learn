@@ -4,17 +4,17 @@ A robot's **workspace** describes the positions or poses its tool can achieve un
 
 ## Reachable positions for a planar arm
 
-Consider an ideal planar arm with two revolute joints, link lengths $L_1$ and $L_2$, unrestricted joint rotation, and a tool at the second link's tip. Ignore collisions and link thickness.
+Consider an ideal planar arm with two revolute joints, link lengths $a_1$ and $a_2$, unrestricted joint rotation, and a tool at the second link's tip. Ignore collisions and link thickness.
 
 The distance $r$ from the base to the tool satisfies
 
 $$
-|L_1-L_2| \leq r \leq L_1+L_2.
+|a_1-a_2| \leq r \leq a_1+a_2.
 $$
 
 The greatest distance occurs when the links point in the same direction. The smallest occurs when they fold back against each other. With unrestricted base rotation, the reachable position workspace is an annulus, or a disk if the lengths are equal.
 
-For $L_1=0.4$ m and $L_2=0.3$ m:
+For $a_1=0.4$ m and $a_2=0.3$ m:
 
 $$
 0.1\text{ m} \leq r \leq 0.7\text{ m}.
@@ -49,10 +49,10 @@ The joints still move; their immediate effects on tool position point along the 
 Hold the shoulder fixed at zero and bend the elbow through a small angle $\delta$. The second link tip moves along a circle:
 
 $$
-\Delta x=L_2(\cos\delta-1),\qquad \Delta y=L_2\sin\delta.
+\Delta x=a_2(\cos\delta-1),\qquad \Delta y=a_2\sin\delta.
 $$
 
-For $L_2=0.3$ m and $\delta=1^\circ$, the changes are approximately $-0.0000457$ m horizontally and $+0.00524$ m vertically. There is an inward displacement after a finite turn. However, at the exact starting instant the tangent is vertical: the horizontal displacement per unit angle tends to zero as the turn tends to zero. This distinguishes a finite change in position from the starting velocity.
+For $a_2=0.3$ m and $\delta=1^\circ$, the changes are approximately $-0.0000457$ m horizontally and $+0.00524$ m vertically. There is an inward displacement after a finite turn. However, at the exact starting instant the tangent is vertical: the horizontal displacement per unit angle tends to zero as the turn tends to zero. This distinguishes a finite change in position from the starting velocity.
 
 Straight and fully folded configurations are singular for this arm's position task. Near a singularity, generating certain requested tool velocities may require very large joint velocities. A singularity does not mean that every motion is impossible or that a joint has mechanically locked.
 
@@ -71,7 +71,7 @@ Check both the final configuration and the path taken to reach it. Two feasible 
 
 ## Quick reference
 
-- Ideal planar 2R radial reach: $|L_1-L_2|\leq r\leq L_1+L_2$.
+- Ideal planar 2R radial reach: $|a_1-a_2|\leq r\leq a_1+a_2$.
 - A position solution does not automatically satisfy an orientation requirement.
 - Singularity concerns instantaneous task-motion capability.
 - Geometric reachability is one part of feasibility.

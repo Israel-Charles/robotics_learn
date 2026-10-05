@@ -49,13 +49,13 @@ For a concrete example, the farthest-right tip position forces both links to poi
 Maximum reach occurs when the links point in the same direction:
 
 $$
-r_{\max}=L_1+L_2=0.5+0.2=0.7\text{ m}.
+r_{\max}=a_1+a_2=0.5+0.2=0.7\text{ m}.
 $$
 
 Minimum reach occurs when the shorter link folds back along the longer:
 
 $$
-r_{\min}=|L_1-L_2|=|0.5-0.2|=0.3\text{ m}.
+r_{\min}=|a_1-a_2|=|0.5-0.2|=0.3\text{ m}.
 $$
 
 Thus the ideal radius must satisfy $0.3\leq r\leq0.7$ m.
@@ -111,18 +111,18 @@ base o---------------o----------o tip
                    elbow         ↑ tangent for either joint
 ```
 
-With the elbow fixed, shoulder rotation carries the tip on a circle of radius $L_1+L_2$ about the base. With the shoulder fixed, elbow rotation carries the tip on a circle of radius $L_2$ about the elbow. At the rightmost point of either circle, the tangent is vertical. Either sign of rotation gives upward or downward velocity; combinations remain vertical. Independent horizontal tip velocity is missing at this instant.
+With the elbow fixed, shoulder rotation carries the tip on a circle of radius $a_1+a_2$ about the base. With the shoulder fixed, elbow rotation carries the tip on a circle of radius $a_2$ about the elbow. At the rightmost point of either circle, the tangent is vertical. Either sign of rotation gives upward or downward velocity; combinations remain vertical. Independent horizontal tip velocity is missing at this instant.
 
 After a finite elbow bend $\delta$, with the shoulder held at zero, compare the new and old tip coordinates:
 
 $$
 \begin{aligned}
-x_{\mathrm{old}}&=L_1+L_2,& y_{\mathrm{old}}&=0,\\
-x_{\mathrm{new}}&=L_1+L_2\cos\delta,& y_{\mathrm{new}}&=L_2\sin\delta.
+x_{\mathrm{old}}&=a_1+a_2,& y_{\mathrm{old}}&=0,\\
+x_{\mathrm{new}}&=a_1+a_2\cos\delta,& y_{\mathrm{new}}&=a_2\sin\delta.
 \end{aligned}
 $$
 
-Subtracting gives $\Delta x=L_2(\cos\delta-1)$ and $\Delta y=L_2\sin\delta$. For a small nonzero bend, $\cos\delta<1$, so $\Delta x<0$: the tip has moved inward. There is no contradiction. Its starting tangent is vertical, but the tangent changes as the elbow bends. Finite displacement includes that change in geometry.
+Subtracting gives $\Delta x=a_2(\cos\delta-1)$ and $\Delta y=a_2\sin\delta$. For a small nonzero bend, $\cos\delta<1$, so $\Delta x<0$: the tip has moved inward. There is no contradiction. Its starting tangent is vertical, but the tangent changes as the elbow bends. Finite displacement includes that change in geometry.
 
 ## 7. Configuration comparison
 

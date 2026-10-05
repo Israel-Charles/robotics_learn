@@ -11,14 +11,14 @@ Apply this to the [position Jacobian](04-velocity-kinematics.md), writing $s_1=\
 $$
 \begin{aligned}
 \det J
-&=(-L_1s_1-L_2s_{12})L_2c_{12}
--(-L_2s_{12})(L_1c_1+L_2c_{12})\\
-&=L_1L_2(s_{12}c_1-s_1c_{12})\\
-&=L_1L_2\sin\theta_2.
+&=(-a_1s_1-a_2s_{12})a_2c_{12}
+-(-a_2s_{12})(a_1c_1+a_2c_{12})\\
+&=a_1a_2(s_{12}c_1-s_1c_{12})\\
+&=a_1a_2\sin\theta_2.
 \end{aligned}
 $$
 
-The $L_2^2s_{12}c_{12}$ terms cancel. The final step uses $\sin(a-b)=\sin a\cos b-\cos a\sin b$.
+The $a_2^2s_{12}c_{12}$ terms cancel. The final step uses $\sin(a-b)=\sin a\cos b-\cos a\sin b$.
 
 For positive link lengths, singularity therefore occurs when $\sin\theta_2=0$, or
 
@@ -49,6 +49,6 @@ The planar pose Jacobian has three rows and two columns, so arbitrary $\dot x,\d
 
 ## Quick reference
 
-For this 2R position model, $\det J=L_1L_2\sin\theta_2$. Singularities occur at straight or folded configurations and describe instantaneous task-motion capability. They do not remove a physical hinge or guarantee that all nearby finite motions are impossible.
+For this 2R position model, $\det J=a_1a_2\sin\theta_2$. Singularities occur at straight or folded configurations and describe instantaneous task-motion capability. They do not remove a physical hinge or guarantee that all nearby finite motions are impossible.
 
 [Previous](04-velocity-kinematics.md) · [Section index](README.md) · [Practice](exercises.md)

@@ -2,7 +2,7 @@
 
 **Inverse kinematics (IK)** finds joint configurations that produce a desired tool position or pose. Unlike forward kinematics, the result may contain no solution, one solution, several discrete solutions, or a continuous family.
 
-We solve the two-link **position** problem: the inputs are link lengths $L_1,L_2$ and a desired tip location $(x,y)$; the unknowns are shoulder angle $\theta_1$ and relative elbow angle $\theta_2$.
+We solve the two-link **position** problem: the inputs are link lengths $a_1,a_2$ and a desired tip location $(x,y)$; the unknowns are shoulder angle $\theta_1$ and relative elbow angle $\theta_2$.
 
 Both links point along positive $x$ when their joint angles are zero, and positive angles turn counterclockwise. The tool is at link 2's tip and points along that link, exactly as in [Forward kinematics](02-forward-kinematics.md).
 
@@ -13,17 +13,17 @@ We are asking “Which joint angles place the tip here?” Once a pair of joint 
 Start from the forward-position equations:
 
 $$
-x=L_1\cos\theta_1+L_2\cos(\theta_1+\theta_2),\qquad
-y=L_1\sin\theta_1+L_2\sin(\theta_1+\theta_2).
+x=a_1\cos\theta_1+a_2\cos(\theta_1+\theta_2),\qquad
+y=a_1\sin\theta_1+a_2\sin(\theta_1+\theta_2).
 $$
 
 Square each expression using $(a+b)^2=a^2+2ab+b^2$, then add:
 
 $$
 \begin{aligned}
-x^2+y^2={}&L_1^2(\cos^2\theta_1+\sin^2\theta_1)\\
-&+L_2^2\bigl(\cos^2(\theta_1+\theta_2)+\sin^2(\theta_1+\theta_2)\bigr)\\
-&+2L_1L_2\bigl(\cos\theta_1\cos(\theta_1+\theta_2)
+x^2+y^2={}&a_1^2(\cos^2\theta_1+\sin^2\theta_1)\\
+&+a_2^2\bigl(\cos^2(\theta_1+\theta_2)+\sin^2(\theta_1+\theta_2)\bigr)\\
+&+2a_1a_2\bigl(\cos\theta_1\cos(\theta_1+\theta_2)
 +\sin\theta_1\sin(\theta_1+\theta_2)\bigr).
 \end{aligned}
 $$
@@ -31,17 +31,17 @@ $$
 Use $\cos^2 a+\sin^2 a=1$ for the first two parentheses. For the last, use $\cos(a-b)=\cos a\cos b+\sin a\sin b$ with $a=\theta_1+\theta_2$ and $b=\theta_1$. This leaves
 
 $$
-x^2+y^2=L_1^2+L_2^2+2L_1L_2\cos\theta_2.
+x^2+y^2=a_1^2+a_2^2+2a_1a_2\cos\theta_2.
 $$
 
 $$
-\cos\theta_2=\frac{x^2+y^2-L_1^2-L_2^2}{2L_1L_2}=c_2.
+\cos\theta_2=\frac{x^2+y^2-a_1^2-a_2^2}{2a_1a_2}=c_2.
 $$
 
 The symbol $c_2$ is shorthand for the elbow cosine, not another unknown angle. A real angle's cosine lies between $-1$ and $1$, so a position solution requires $-1\leq c_2\leq1$. Equivalently,
 
 $$
-(L_1-L_2)^2\leq x^2+y^2\leq(L_1+L_2)^2,
+(a_1-a_2)^2\leq x^2+y^2\leq(a_1+a_2)^2,
 $$
 
 which gives the radial workspace bound after taking square roots.
@@ -67,23 +67,23 @@ The function $\operatorname{atan2}(y,x)$ computes an angle using both components
 In a frame rotated with link 1, the base-to-tool vector has components
 
 $$
-\begin{bmatrix}L_1+L_2c_2\\L_2s_2\end{bmatrix}.
+\begin{bmatrix}a_1+a_2c_2\\a_2s_2\end{bmatrix}.
 $$
 
-Its angle in that frame is $\operatorname{atan2}(L_2s_2,L_1+L_2c_2)$. Subtract this from the target's base-frame angle:
+Its angle in that frame is $\operatorname{atan2}(a_2s_2,a_1+a_2c_2)$. Subtract this from the target's base-frame angle:
 
 $$
 \boxed{\theta_1=\operatorname{atan2}(y,x)
--\operatorname{atan2}(L_2s_2,L_1+L_2c_2).}
+-\operatorname{atan2}(a_2s_2,a_1+a_2c_2).}
 $$
 
-To see why this is a subtraction, call the target's base-frame direction $\beta=\operatorname{atan2}(y,x)$ and its direction relative to link 1 $\gamma=\operatorname{atan2}(L_2s_2,L_1+L_2c_2)$. Rotating the link-1 frame by $\theta_1$ gives $\beta=\theta_1+\gamma$, so $\theta_1=\beta-\gamma$ (up to equivalent full turns).
+To see why this is a subtraction, call the target's base-frame direction $\beta=\operatorname{atan2}(y,x)$ and its direction relative to link 1 $\gamma=\operatorname{atan2}(a_2s_2,a_1+a_2c_2)$. Rotating the link-1 frame by $\theta_1$ gives $\beta=\theta_1+\gamma$, so $\theta_1=\beta-\gamma$ (up to equivalent full turns).
 
 Apply this formula separately for each sign of $s_2$.
 
 ## Worked example: two solutions for one position
 
-Take $L_1=0.4$ m, $L_2=0.3$ m and target $(x,y)=(0.4,0.3)$ m.
+Take $a_1=0.4$ m, $a_2=0.3$ m and target $(x,y)=(0.4,0.3)$ m.
 
 $$
 c_2=\frac{0.4^2+0.3^2-0.4^2-0.3^2}{2(0.4)(0.3)}=0.
@@ -108,7 +108,7 @@ Their orientations differ. If the task also requires $\phi=0^\circ$, neither bra
 
 - At $c_2=1$, the links align and the two elbow branches coincide.
 - At $c_2=-1$, the links are fully folded. Angles $+\pi$ and $-\pi$ describe the same relative link orientation, modulo a full turn.
-- If $L_1=L_2$ and the target is the origin, any shoulder angle with a fully folded elbow places the tip at the origin. This gives a continuous family, and the shoulder formula encounters undefined zero-vector angles. Treat it separately.
+- If $a_1=a_2$ and the target is the origin, any shoulder angle with a fully folded elbow places the tip at the origin. This gives a continuous family, and the shoulder formula encounters undefined zero-vector angles. Treat it separately.
 - Floating-point arithmetic may produce a value just outside $[-1,1]$ for a boundary target. Check against a justified small numerical tolerance before clamping. Clamping a substantially invalid value would hide an unreachable target.
 
 ## Turn geometric solutions into candidates
@@ -127,11 +127,11 @@ An endpoint solution is not a safe or executable trajectory by itself. The entir
 
 | Step | Calculation |
 | --- | --- |
-| Elbow cosine | $c_2=(x^2+y^2-L_1^2-L_2^2)/(2L_1L_2)$ |
+| Elbow cosine | $c_2=(x^2+y^2-a_1^2-a_2^2)/(2a_1a_2)$ |
 | Reachability | Require $c_2\in[-1,1]$ |
 | Elbow branches | $s_2=\pm\sqrt{1-c_2^2}$ |
 | Elbow angle | $\theta_2=\operatorname{atan2}(s_2,c_2)$ |
-| Shoulder angle | $\theta_1=\operatorname{atan2}(y,x)-\operatorname{atan2}(L_2s_2,L_1+L_2c_2)$ |
+| Shoulder angle | $\theta_1=\operatorname{atan2}(y,x)-\operatorname{atan2}(a_2s_2,a_1+a_2c_2)$ |
 | Verification | Evaluate forward kinematics for each candidate |
 
 [Previous](02-forward-kinematics.md) · [Section index](README.md) · [Next: Velocity kinematics](04-velocity-kinematics.md)

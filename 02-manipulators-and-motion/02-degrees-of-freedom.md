@@ -38,7 +38,7 @@ If a tool is mounted at a fixed angle $\alpha$ relative to link 2, its orientati
 
 Think of the two joint angles as two adjustment knobs. The tool's $x$, $y$, and $\phi$ are the resulting measurements. Turning either knob generally changes several measurements at once. Once the angles have been selected to place the tip at a particular $(x,y)$, there is generally no independent knob left to choose $\phi$ freely.
 
-An extreme example makes this visible: to reach the farthest point $(L_1+L_2,0)$, both links must point right. The aligned tool then points right too. You cannot keep the tip at that farthest point while making the tool point upward using only those two joints.
+An extreme example makes this visible: to reach the farthest point $(a_1+a_2,0)$, both links must point right. The aligned tool then points right too. You cannot keep the tip at that farthest point while making the tool point upward using only those two joints.
 
 | What are we describing? | Values needed | Meaning of the count |
 | --- | --- | --- |

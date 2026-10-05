@@ -9,13 +9,13 @@ A dot means a time derivative: $\dot\theta_1$ is shoulder angular velocity in ra
 The chain rule states that $d(\cos a)/dt=-\sin(a)\dot a$ and $d(\sin a)/dt=\cos(a)\dot a$. The angle $\theta_1+\theta_2$ changes at rate $\dot\theta_1+\dot\theta_2$. Thus
 
 $$
-\dot x=-L_1\sin\theta_1\dot\theta_1
--L_2\sin(\theta_1+\theta_2)(\dot\theta_1+\dot\theta_2),
+\dot x=-a_1\sin\theta_1\dot\theta_1
+-a_2\sin(\theta_1+\theta_2)(\dot\theta_1+\dot\theta_2),
 $$
 
 $$
-\dot y=L_1\cos\theta_1\dot\theta_1
-+L_2\cos(\theta_1+\theta_2)(\dot\theta_1+\dot\theta_2).
+\dot y=a_1\cos\theta_1\dot\theta_1
++a_2\cos(\theta_1+\theta_2)(\dot\theta_1+\dot\theta_2).
 $$
 
 Collect the coefficient of each joint velocity:
@@ -23,8 +23,8 @@ Collect the coefficient of each joint velocity:
 $$
 \begin{bmatrix}\dot x\\\dot y\end{bmatrix}
 =\underbrace{\begin{bmatrix}
--L_1\sin\theta_1-L_2\sin(\theta_1+\theta_2)&-L_2\sin(\theta_1+\theta_2)\\
-L_1\cos\theta_1+L_2\cos(\theta_1+\theta_2)&L_2\cos(\theta_1+\theta_2)
+-a_1\sin\theta_1-a_2\sin(\theta_1+\theta_2)&-a_2\sin(\theta_1+\theta_2)\\
+a_1\cos\theta_1+a_2\cos(\theta_1+\theta_2)&a_2\cos(\theta_1+\theta_2)
 \end{bmatrix}}_{J(q)}
 \begin{bmatrix}\dot\theta_1\\\dot\theta_2\end{bmatrix}.
 $$
@@ -33,7 +33,7 @@ The **Jacobian** $J(q)$ is the local joint-to-tool velocity map. Its first colum
 
 ## Worked example
 
-Let $L_1=0.4$ m, $L_2=0.3$ m, $\theta_1=0$, and $\theta_2=\pi/2$. Then
+Let $a_1=0.4$ m, $a_2=0.3$ m, $\theta_1=0$, and $\theta_2=\pi/2$. Then
 
 $$
 J=\begin{bmatrix}-0.3&-0.3\\0.4&0\end{bmatrix}.

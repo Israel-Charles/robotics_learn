@@ -29,4 +29,6 @@ The examples assume rigid links, ideal revolute joints, a fixed base, and a tool
 5. [Jacobians and singularities](05-jacobians-and-singularities.md)
 6. [Exercises](exercises.md), then [worked solutions](solutions.md)
 
+To extend these models to three dimensions, continue with [spatial kinematics](../07-spatial-kinematics/README.md): rotation representations, homogeneous transforms, and standard DH. It can be read before the control section.
+
 [Course index](../README.md) · [Next section: Control and interaction](../04-control-and-interaction/README.md)

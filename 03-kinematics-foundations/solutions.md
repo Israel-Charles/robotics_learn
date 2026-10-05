@@ -53,7 +53,7 @@ This recovers the original coordinates and checks both rotation direction and tr
 
 ## 3. Forward kinematics
 
-**Question.** For $L_1=0.4$ m, $L_2=0.3$ m, $\theta_1=90^\circ$, and $\theta_2=-90^\circ$, find the elbow position, tool position, and tool orientation.
+**Question.** For $a_1=0.4$ m, $a_2=0.3$ m, $\theta_1=90^\circ$, and $\theta_2=-90^\circ$, find the elbow position, tool position, and tool orientation.
 
 **Solution.**
 
@@ -74,7 +74,7 @@ The elbow is $(0,0.4)$ m, the TCP is $(0.3,0.4)$ m, and the aligned tool orienta
 
 ## 4. Inverse kinematics
 
-**Question.** For $L_1=0.4$ m, $L_2=0.3$ m, and target $(0.3,0.4)$ m, find both elbow branches and their tool orientations. Verify both by forward kinematics.
+**Question.** For $a_1=0.4$ m, $a_2=0.3$ m, and target $(0.3,0.4)$ m, find both elbow branches and their tool orientations. Verify both by forward kinematics.
 
 **Solution.**
 
@@ -135,7 +135,7 @@ Both produce the target position, with different orientations. Use unrounded ang
 
 ## 5. Unreachable target
 
-**Question.** For $L_1=0.4$ m and $L_2=0.3$ m, calculate $c_2$ for target $(0.8,0)$ m. Explain why there is no real IK solution.
+**Question.** For $a_1=0.4$ m and $a_2=0.3$ m, calculate $c_2$ for target $(0.8,0)$ m. Explain why there is no real IK solution.
 
 **Solution.**
 
@@ -148,7 +148,7 @@ No real angle has this cosine. Equivalently, the target radius 0.8 m exceeds the
 
 ## 6. Apply limits
 
-**Question.** For $L_1=0.4$ m, $L_2=0.3$ m, and target $(0.4,0.3)$ m, suppose joint 1 must lie between $-45^\circ$ and $45^\circ$, and joint 2 between $-120^\circ$ and $120^\circ$. Which branch from the lesson survives? Does that prove a collision-free path exists?
+**Question.** For $a_1=0.4$ m, $a_2=0.3$ m, and target $(0.4,0.3)$ m, suppose joint 1 must lie between $-45^\circ$ and $45^\circ$, and joint 2 between $-120^\circ$ and $120^\circ$. Which branch from the lesson survives? Does that prove a collision-free path exists?
 
 **Solution.**
 
@@ -165,29 +165,29 @@ Adding or subtracting $360^\circ$ from the rejected shoulder angle cannot bring 
 
 ## 7. Exceptional geometry
 
-**Question.** If $L_1=L_2=0.3$ m, explain how the tool can stay at the base while the shoulder angle changes. What happens to tool orientation?
+**Question.** If $a_1=a_2=0.3$ m, explain how the tool can stay at the base while the shoulder angle changes. What happens to tool orientation?
 
 **Solution.**
 
-Set the relative elbow angle to $180^\circ$. With equal link lengths $L=0.3$ m:
+Set the relative elbow angle to $180^\circ$. With equal link lengths $a=0.3$ m:
 
 $$
-x=L\cos\theta_1+L\cos(\theta_1+180^\circ),\qquad
-y=L\sin\theta_1+L\sin(\theta_1+180^\circ).
+x=a\cos\theta_1+a\cos(\theta_1+180^\circ),\qquad
+y=a\sin\theta_1+a\sin(\theta_1+180^\circ).
 $$
 
 Use $\cos(a+180^\circ)=-\cos a$ and $\sin(a+180^\circ)=-\sin a$:
 
 $$
-x=L\cos\theta_1-L\cos\theta_1=0,\qquad
-y=L\sin\theta_1-L\sin\theta_1=0.
+x=a\cos\theta_1-a\cos\theta_1=0,\qquad
+y=a\sin\theta_1-a\sin\theta_1=0.
 $$
 
 This cancellation holds for every shoulder angle. The position remains at the base, while the aligned tool orientation is $\phi=\theta_1+180^\circ$ modulo $360^\circ$. At shoulder angles $0^\circ$ and $90^\circ$, for example, the tool points at $180^\circ$ and $270^\circ$ respectively. This is an ideal geometric result that ignores link thickness and self-collision.
 
 ## 8. Mini-lab
 
-**Question.** Using $L_1=0.4$ m and $L_2=0.3$ m, adapt the forward-kinematics Python example to evaluate $(0^\circ,0^\circ)$, $(90^\circ,0^\circ)$, $(0^\circ,180^\circ)$, and $(30^\circ,60^\circ)$. Record position, orientation, and distance from the base for each. Explain any tiny values near zero in the numerical output.
+**Question.** Using $a_1=0.4$ m and $a_2=0.3$ m, adapt the forward-kinematics Python example to evaluate $(0^\circ,0^\circ)$, $(90^\circ,0^\circ)$, $(0^\circ,180^\circ)$, and $(30^\circ,60^\circ)$. Record position, orientation, and distance from the base for each. Explain any tiny values near zero in the numerical output.
 
 **Solution.**
 
@@ -230,7 +230,7 @@ For the last row, $x\approx0.346410$ m and $y=0.5$ m, so $r=\sqrt{0.346410^2+0.5
 
 ## 9. Velocity mapping
 
-**Question.** For $L_1=0.4$ m, $L_2=0.3$ m, $\theta_1=0$, and $\theta_2=\pi/2$, calculate the position Jacobian. Find tool velocity for joint rates $(0.2,-0.1)$ rad/s, then find joint rates that produce tool velocity $(0,0.04)$ m/s at that configuration.
+**Question.** For $a_1=0.4$ m, $a_2=0.3$ m, $\theta_1=0$, and $\theta_2=\pi/2$, calculate the position Jacobian. Find tool velocity for joint rates $(0.2,-0.1)$ rad/s, then find joint rates that produce tool velocity $(0,0.04)$ m/s at that configuration.
 
 **Solution.** With $\sin0=0$, $\cos0=1$, $\sin(\pi/2)=1$, and $\cos(\pi/2)=0$, substitution gives
 
@@ -245,9 +245,9 @@ For the inverse request, solve the vertical equation first: $0.4\dot\theta_1=0.0
 
 ## 10. Singular motion
 
-**Question.** For the same positive link lengths, use $\det J=L_1L_2\sin\theta_2$ to identify singular elbow angles. At $\theta_1=\theta_2=0$, can joint motion produce horizontal tool velocity 0.01 m/s? Give two joint-rate pairs producing vertical velocity 0.07 m/s and explain whether a physical joint has lost its freedom.
+**Question.** For the same positive link lengths, use $\det J=a_1a_2\sin\theta_2$ to identify singular elbow angles. At $\theta_1=\theta_2=0$, can joint motion produce horizontal tool velocity 0.01 m/s? Give two joint-rate pairs producing vertical velocity 0.07 m/s and explain whether a physical joint has lost its freedom.
 
-**Solution.** Since $L_1L_2=0.12$ m² is nonzero, the determinant is zero exactly when $\sin\theta_2=0$. Thus $\theta_2=n\pi$ for integer $n$: straight or fully folded configurations, subject to joint limits.
+**Solution.** Since $a_1a_2=0.12$ m² is nonzero, the determinant is zero exactly when $\sin\theta_2=0$. Thus $\theta_2=n\pi$ for integer $n$: straight or fully folded configurations, subject to joint limits.
 
 At the specified straight configuration,
 

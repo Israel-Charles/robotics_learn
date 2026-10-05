@@ -4,7 +4,7 @@
 
 ## Define the mechanism first
 
-Our arm has two revolute joints and link lengths $L_1,L_2>0$:
+Our arm has two revolute joints and link lengths $a_1,a_2>0$:
 
 - The first joint is at the base-frame origin.
 - At zero joint angles, both links extend along positive $x$.
@@ -12,13 +12,15 @@ Our arm has two revolute joints and link lengths $L_1,L_2>0$:
 - $\theta_2$ is the counterclockwise rotation of link 2 relative to link 1.
 - The TCP is at the tip of link 2, and tool orientation follows link 2.
 
+The symbols $a_1,a_2$ denote fixed geometric lengths, not joint angles. They also match the common-normal distances in this arm's [standard DH model](../07-spatial-kinematics/08-denavit-hartenberg.md). In the Python example, their descriptive names are `linkLength1` and `linkLength2`.
+
 ```text
                        TCP (x, y)
                       /
-                 L2  /  absolute angle: θ1 + θ2
+                 a2  /  absolute angle: θ1 + θ2
                     o  elbow
                    /
-              L1  /  absolute angle: θ1
+              a1  /  absolute angle: θ1
                  o--------------------> base x
                base
 ```
@@ -30,17 +32,17 @@ The sketch shows the connection order; actual angles vary with configuration.
 The elbow position is
 
 $$
-x_e=L_1\cos\theta_1,\qquad y_e=L_1\sin\theta_1.
+x_e=a_1\cos\theta_1,\qquad y_e=a_1\sin\theta_1.
 $$
 
 Link 2 is oriented at $\theta_1+\theta_2$ relative to the base. Adding its displacement gives
 
 $$
-\boxed{x=L_1\cos\theta_1+L_2\cos(\theta_1+\theta_2)}
+\boxed{x=a_1\cos\theta_1+a_2\cos(\theta_1+\theta_2)}
 $$
 
 $$
-\boxed{y=L_1\sin\theta_1+L_2\sin(\theta_1+\theta_2)}
+\boxed{y=a_1\sin\theta_1+a_2\sin(\theta_1+\theta_2)}
 $$
 
 $$
@@ -64,15 +66,15 @@ Using $\theta_2$ alone for link 2's base-frame direction would mix a relative an
 The same geometry can be written using planar homogeneous transforms:
 
 $$
-T=\operatorname{Rot}(\theta_1)\operatorname{Trans}_x(L_1)
-\operatorname{Rot}(\theta_2)\operatorname{Trans}_x(L_2),
+T=\operatorname{Rot}(\theta_1)\operatorname{Trans}_x(a_1)
+\operatorname{Rot}(\theta_2)\operatorname{Trans}_x(a_2),
 $$
 
-where $\operatorname{Rot}$ is the homogeneous rotation from the preceding lesson and $\operatorname{Trans}_x(L)$ has identity rotation and translation $[L,0]^T$. The final transform's translation column contains $(x,y)$ and its rotation corresponds to $\phi$.
+where $\operatorname{Rot}$ is the homogeneous rotation from the preceding lesson and $\operatorname{Trans}_x(a)$ has identity rotation and translation $[a,0]^T$. The final transform's translation column contains $(x,y)$ and its rotation corresponds to $\phi$.
 
 ## Worked example
 
-Let $L_1=0.4$ m, $L_2=0.3$ m, $\theta_1=30^\circ$, and $\theta_2=60^\circ$. The second link's absolute angle is $90^\circ$.
+Let $a_1=0.4$ m, $a_2=0.3$ m, $\theta_1=30^\circ$, and $\theta_2=60^\circ$. The second link's absolute angle is $90^\circ$.
 
 $$
 x=0.4\cos30^\circ+0.3\cos90^\circ\approx0.3464\text{ m}
@@ -114,9 +116,9 @@ Orientation: 90.0 deg
 
 ## Sanity checks before trusting a model
 
-- At $(\theta_1,\theta_2)=(0,0)$, the tool should be at $(L_1+L_2,0)$.
-- At $(90^\circ,0)$, it should be at $(0,L_1+L_2)$.
-- At $(0,180^\circ)$, it should be at $(L_1-L_2,0)$.
+- At $(\theta_1,\theta_2)=(0,0)$, the tool should be at $(a_1+a_2,0)$.
+- At $(90^\circ,0)$, it should be at $(0,a_1+a_2)$.
+- At $(0,180^\circ)$, it should be at $(a_1-a_2,0)$.
 - Every position should satisfy the ideal radial workspace bound.
 
 The outputs are desired or predicted geometry, not motor commands. This model contains no timing, obstacle checking, or torque calculation.
@@ -125,7 +127,7 @@ The outputs are desired or predicted geometry, not motor commands. This model co
 
 | Quantity | Expression |
 | --- | --- |
-| Elbow position | $(L_1\cos\theta_1,L_1\sin\theta_1)$ |
+| Elbow position | $(a_1\cos\theta_1,a_1\sin\theta_1)$ |
 | Link 2 absolute angle | $\theta_1+\theta_2$ |
 | Tool position | Sum of both base-frame link displacements |
 | Tool orientation | $\phi=\theta_1+\theta_2$ |
